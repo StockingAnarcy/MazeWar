@@ -168,7 +168,8 @@ public class PlayerControl : NetworkBehaviour {
 		{
 			GameObject obj = GameObject.Find("NetworkManager");
 			NetworkLogic log  = obj.GetComponent<NetworkLogic>();
-			log.client.connection.Disconnect();
+			log.StopHost();
+			log.StopClient();
 			SceneManager.LoadScene(0);
 		}
 
