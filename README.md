@@ -3,10 +3,11 @@ Recreation of Maze War(1973) on Android
 Based on https://github.com/Blueteak/MazeWar
 
 ### Current Version
-Terminal Window when creating/joining a game<br />
+##### Terminal Window when creating/joining a game<br />
 ![alt text](https://i.imgur.com/fhwmI46.png?1)<br />
-Game Window<br />
-![alt text](https://i.imgur.com/gvwzCg9.png?1)<br />
+
+##### Game Window<br />
+![alt text](https://i.imgur.com/eAQd26v.jpg)<br />
 
 ### Features
   Mostly depends on Blueteak's source
