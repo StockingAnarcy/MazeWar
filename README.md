@@ -7,7 +7,7 @@ Based on https://github.com/Blueteak/MazeWar
 ![alt text](https://i.imgur.com/fhwmI46.png?1)<br />
 
 ##### Game Window<br />
-![alt text](https://i.imgur.com/eAQd26v.jpg)<br />
+![alt text](https://i.imgur.com/eAQd26v.jpg?1)<br />
 
 ### Features
   Mostly depends on Blueteak's source
