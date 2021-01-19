@@ -62,31 +62,6 @@ public class PlayerControl : NetworkBehaviour {
 				CamHolder.SetActive(true);
 			}
            
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-			{
-				CmdUp();
-			}
-			CheckSeen();
-
-			if (Input.GetKeyDown(KeyCode.DownArrow))
-			{
-				CmdDown();
-			}
-			CheckSeen();
-
-			if (Input.GetKeyDown(KeyCode.LeftArrow))
-			{
-				CmdLeft();
-			}
-			CheckSeen();
-
-			if (Input.GetKeyDown(KeyCode.RightArrow))
-			{
-				CmdRight();
-			}
-			CheckSeen();
-
-
 #if UNITY_ANDROID
             if (Input.touches.Length > 0)
 			{
@@ -96,6 +71,7 @@ public class PlayerControl : NetworkBehaviour {
 					//save began touch 2d point
 					firstPressPos = new Vector2(t.position.x, t.position.y);
 				}
+				
 				if (t.phase == TouchPhase.Ended)
 				{
 					//save ended touch 2d point
@@ -111,25 +87,25 @@ public class PlayerControl : NetworkBehaviour {
 					if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
 					{
 						//Debug.Log("up swipe");
-						CmdUp();
+						CmdDoMovement(true,false,false,false);
 					}
 					//swipe down
 					if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
 					{
 						//Debug.Log("down swipe");
-						CmdDown();
+						CmdDoMovement(false, true, false, false);
 					}
 					//swipe left
 					if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
 					{
 						//Debug.Log("left swipe");
-						CmdLeft();
+						CmdDoMovement(false, false, true, false);
 					}
 					//swipe right
 					if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
 					{
 						//Debug.Log("right swipe");
-						CmdRight();
+						CmdDoMovement(false, false, false, true);
 					}
 
 				}
@@ -137,7 +113,7 @@ public class PlayerControl : NetworkBehaviour {
 			}
 #endif
 
-			/*
+			
 			bool up = Input.GetKeyDown(KeyCode.UpArrow);
 			bool down = Input.GetKeyDown(KeyCode.DownArrow);
 			bool left = Input.GetKeyDown(KeyCode.LeftArrow);
@@ -148,7 +124,7 @@ public class PlayerControl : NetworkBehaviour {
 				CmdDoMovement(up, down, left, right);
 			}
 			CheckSeen();
-			*/
+			
 		}
 		else
 		{
@@ -161,7 +137,7 @@ public class PlayerControl : NetworkBehaviour {
 			
 		if(isLocalPlayer && Input.GetKeyDown(KeyCode.Space))// || Input.GetKeyDown(KeyCode.Mouse0))
 		{
-			Shoot();
+			CmdShoot();
 		}
 
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -279,7 +255,7 @@ public class PlayerControl : NetworkBehaviour {
 		transform.localEulerAngles = new Vector3(0,Random.Range(0,4)*90, 0);
 	}
 
-	/*
+	
 	[Command]
 	void CmdDoMovement(bool up, bool back, bool left, bool right)
 	{
@@ -323,8 +299,8 @@ public class PlayerControl : NetworkBehaviour {
 			transform.localEulerAngles += new Vector3(0, 90, 0);
 		}
 	}
-	*/
 
+	/*
 	[Command]
 	public void CmdUp()
 	{
@@ -381,7 +357,8 @@ public class PlayerControl : NetworkBehaviour {
 		transform.localEulerAngles += new Vector3(0, 90, 0);
 	}
 	
-	/*
+
+	
 	void OnDestroy()
 	{
 		transform.GetComponentInChildren<Camera>().transform.SetParent(null);
