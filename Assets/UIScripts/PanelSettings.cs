@@ -7,7 +7,6 @@ using UnityEngine.Android;
 
 public class PanelSettings : MonoBehaviour
 {
-    public GameObject introPanel;
     public GameObject Intro2;
 
     TMP_Text[] texts;
@@ -25,6 +24,8 @@ public class PanelSettings : MonoBehaviour
 
     public Material mat;
     public Material line;
+
+    TouchScreenKeyboard keyboard;
     void Start()
     {
         texts = Resources.FindObjectsOfTypeAll<TextMeshProUGUI>();
@@ -38,7 +39,7 @@ public class PanelSettings : MonoBehaviour
 
     public void SubmitChoice(string Choice)
     {
-        if (Input.GetKeyDown(KeyCode.Return) || TouchScreenKeyboard.visible == false)
+        if (Input.GetKeyDown(KeyCode.Return) || keyboard.status == TouchScreenKeyboard.Status.Done)
         {
             if (Choice.ToUpper().Equals("B"))
             {

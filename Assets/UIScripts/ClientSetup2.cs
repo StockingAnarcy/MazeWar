@@ -10,7 +10,7 @@ public class ClientSetup2 : MonoBehaviour {
 
 	public GameObject IntroScreen;
 
-
+	TouchScreenKeyboard keyboard;
 	public void Load()
 	{
 		GetComponent<TMP_Text>().text += IP +":" + Port + "\n"+PostStr;
@@ -18,10 +18,7 @@ public class ClientSetup2 : MonoBehaviour {
 
 	void Update () 
 	{
-		if(Input.GetKey(KeyCode.Delete))
-			Application.Quit();
-
-		if (Input.GetKey(KeyCode.Escape))
+		if (Input.GetKey(KeyCode.Delete) || Input.GetKey(KeyCode.Escape))
 		{
 			Application.Quit();
 		}
@@ -29,7 +26,7 @@ public class ClientSetup2 : MonoBehaviour {
 
 	public void SubmitName(string name)
 	{
-		if (Input.GetKeyDown(KeyCode.Return) || TouchScreenKeyboard.visible == false)
+		if (Input.GetKeyDown(KeyCode.Return) || keyboard.status == TouchScreenKeyboard.Status.Done)
 		{
 			Debug.Log("Name Selected: " + name);
 			FindObjectOfType<PlayerDetails>().name = name;
@@ -41,7 +38,7 @@ public class ClientSetup2 : MonoBehaviour {
 			gameObject.SetActive(false);
 			IntroScreen.SetActive(false);
 
-			if (name.ToUpper().Equals("EXT"))
+			if (name.ToUpper().Equals("/EXT"))
 			{
 				Application.Quit();
 			}

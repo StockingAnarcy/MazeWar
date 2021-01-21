@@ -4,14 +4,13 @@ using TMPro;
 
 public class PanelHelp : MonoBehaviour
 {
-    public GameObject introPanel;
     public GameObject Intro2;
     public GameObject PanelSettings;
 
-
+    TouchScreenKeyboard keyboard;
     public void SubmitChoice(string Choice)
     {
-        if (Input.GetKeyDown(KeyCode.Return) || TouchScreenKeyboard.visible == false)
+        if (Input.GetKeyDown(KeyCode.Return) || keyboard.status == TouchScreenKeyboard.Status.Done)
         {
             if (Choice.ToUpper().Equals("B"))
             {

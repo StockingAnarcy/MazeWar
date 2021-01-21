@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class IntroScreen2 : MonoBehaviour {
 
 	public GameObject introPanel;
@@ -9,16 +10,18 @@ public class IntroScreen2 : MonoBehaviour {
 	public GameObject SelectPanelHelp;
 	public GameObject SelectPanelSettings;
 
-
+	TouchScreenKeyboard keyboard;
 	void Update()
 	{
-		if(Input.GetKey(KeyCode.Delete)||Input.GetKey(KeyCode.Escape))
+		if (Input.GetKeyDown(KeyCode.Delete) || Input.GetKeyDown(KeyCode.Escape))
+		{
 			Application.Quit();
+		}
 	}
 
 	public void SubmitChoice(string Choice)
 	{
-		if (Input.GetKeyDown(KeyCode.Return) || TouchScreenKeyboard.visible==false)
+		if (Input.GetKeyDown(KeyCode.Return) || keyboard.status == TouchScreenKeyboard.Status.Done)// TouchScreenKeyboard.visible==false)
 		{
 			if(Choice.ToUpper().Equals("C"))
 			{

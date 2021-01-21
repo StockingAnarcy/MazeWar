@@ -6,15 +6,10 @@ public class ServerSetup : MonoBehaviour {
 
 	public GameObject IntroScreen;
 	
-	// Update is called once per frame
+	TouchScreenKeyboard keyboard;
 	void Update () 
 	{
-		if (Input.GetKey(KeyCode.Delete))
-		{
-			Application.Quit();
-		}
-
-		if (Input.GetKey(KeyCode.Escape))
+		if (Input.GetKey(KeyCode.Delete)||Input.GetKey(KeyCode.Escape))
 		{
 			Application.Quit();
 		}
@@ -22,7 +17,7 @@ public class ServerSetup : MonoBehaviour {
 
 	public void SubmitName(string name)
 	{
-		if (Input.GetKeyDown(KeyCode.Return) || TouchScreenKeyboard.visible == false)
+		if (Input.GetKeyDown(KeyCode.Return) || keyboard.status == TouchScreenKeyboard.Status.Done)
 		{
 			Debug.Log("Name Selected: " + name);
 			FindObjectOfType<PlayerDetails>().name = name;
