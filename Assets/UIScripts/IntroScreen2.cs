@@ -6,8 +6,9 @@ public class IntroScreen2 : MonoBehaviour {
 
 	public GameObject SelectPanelServer;
 	public GameObject SelectPanelClient;
-	public GameObject SelectPanelSettings;
 	public GameObject SelectPanelHelp;
+	public GameObject SelectPanelSettings;
+
 
 	void Update()
 	{

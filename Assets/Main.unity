@@ -298,7 +298,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 0
   m_RegexValue: 
-  m_GlobalPointSize: 11
+  m_GlobalPointSize: 11.5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -809,7 +809,7 @@ MonoBehaviour:
 
     MazeWar version 3.0
 
-    Type
+    Print
     /help for more info
 
 
@@ -1523,11 +1523,11 @@ MonoBehaviour:
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
-  m_HideMobileInput: 0
+  m_HideMobileInput: 1
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 0
   m_RegexValue: 
-  m_GlobalPointSize: 11
+  m_GlobalPointSize: 11.5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -1713,7 +1713,7 @@ MonoBehaviour:
 
     MazeWar version 3.0
 
-    Type
+    Print
     /help for more info
 
 
@@ -2389,7 +2389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &330787480
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3378,7 +3378,7 @@ MonoBehaviour:
 
     MazeWar version 3.0
 
-    Type
+    Print
     /help for more info
 
 
@@ -3594,8 +3594,8 @@ RectTransform:
   m_Children:
   - {fileID: 1478560011}
   - {fileID: 710115157}
-  - {fileID: 960305306}
   - {fileID: 517874318}
+  - {fileID: 960305306}
   - {fileID: 75224987}
   - {fileID: 131081927}
   - {fileID: 475126450}
@@ -3813,12 +3813,12 @@ RectTransform:
   m_Children:
   - {fileID: 60583473}
   m_Father: {fileID: 495447174}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 10, y: -10}
-  m_SizeDelta: {x: -10, y: 246.11}
+  m_SizeDelta: {x: -10, y: 265.65}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &517874319
 MonoBehaviour:
@@ -3834,7 +3834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introPanel: {fileID: 495447173}
   Intro2: {fileID: 710115156}
-  Settings: {fileID: 960305305}
+  PanelSettings: {fileID: 960305305}
 --- !u!114 &517874320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3870,11 +3870,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "-- XEROX Alto Executive/12 ------- Date and Time Unknown -\n--- OS Version
-    18/16 --- Alto0#377#--- --- ---------------\n\nMazeWar version 3.0\n/help ver.1
-    \n\nInput Buttons:\n\tMovement : left/right swipe - turn left/right\n\t        
+    18/16 --- Alto0#377#--- --- ---------------\n\nMazeWar version 3.0\n/help ver.
+    1.0 \n\nInput Buttons:\n\tMovement : left/right swipe - turn left/right\n\t        
     : up/down swipe - move forvard/back\n\t\n\tShooting : hit FIRE! button\t\n\n/settings
-    \t-- enter settings\nc \t          -- create server\nj \t\t-- join server\n/ext
-    \t\t-- exit Maze\nb \t\t-- close help\n\n"
+    \t-- SOON\nc \t          -- create server\nj \t\t-- join server\n/ext \t\t--
+    exit Maze\nb \t\t-- close help\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9cf5bd62dd5b1342a95a5e83d41c43c, type: 2}
   m_sharedMaterial: {fileID: -833371088238300268, guid: d9cf5bd62dd5b1342a95a5e83d41c43c,
@@ -4850,7 +4850,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 10, y: -10}
-  m_SizeDelta: {x: -10, y: 94.31}
+  m_SizeDelta: {x: -10, y: 101.2}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &710115158
 MonoBehaviour:
@@ -4894,7 +4894,7 @@ MonoBehaviour:
 
     MazeWar version 3.0
 
-    Type
+    Print
     /help for more info
 
 
@@ -4991,8 +4991,8 @@ MonoBehaviour:
   introPanel: {fileID: 495447173}
   SelectPanelServer: {fileID: 75224986}
   SelectPanelClient: {fileID: 131081926}
-  SelectPanelSettings: {fileID: 960305305}
   SelectPanelHelp: {fileID: 517874317}
+  SelectPanelSettings: {fileID: 0}
 --- !u!1 &728662532
 GameObject:
   m_ObjectHideFlags: 0
@@ -5703,7 +5703,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 0
   m_RegexValue: 
-  m_GlobalPointSize: 11
+  m_GlobalPointSize: 11.5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -5863,12 +5863,12 @@ RectTransform:
   m_Children:
   - {fileID: 1775046419}
   m_Father: {fileID: 495447174}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 10, y: -10}
-  m_SizeDelta: {x: -10, y: 121.91}
+  m_SizeDelta: {x: -10, y: 146.05}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &960305307
 MonoBehaviour:
@@ -5924,7 +5924,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "-- XEROX Alto Executive/12 ------- Date and Time Unknown -\n--- OS Version
-    18/16 --- Alto0#377#--- --- ---------------\n\nMazeWar version 3.0\n/settings\nw
+    18/16 --- Alto0#377#--- --- ---------------\n\nMazeWar version 3.0\n/settings\n\nw
     \t-- white scheme\nb \t-- black scheme\ns \t-- save\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9cf5bd62dd5b1342a95a5e83d41c43c, type: 2}
@@ -6171,7 +6171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   port: 8888
-  updateTime: 1
+  updateTime: 15
   disconnectTimeout: 5000
   ipv6Enabled: 0
   maxConnectAttempts: 10
@@ -6194,8 +6194,8 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   runInBackground: 1
   autoStartServerBuild: 0
-  showDebugMessages: 1
-  serverTickRate: 60
+  showDebugMessages: 0
+  serverTickRate: 30
   offlineScene: Assets/SinglePlayer.unity
   onlineScene: Assets/Main.unity
   transport: {fileID: 1058955412}
@@ -8046,6 +8046,12 @@ MonoBehaviour:
   LoadText: {fileID: 1702162739}
   NextScene: {fileID: 710115156}
   inpt: {fileID: 1928099777}
+  Sett: {fileID: 960305305}
+  MCamera: {fileID: 454355173}
+  Camera: {fileID: 527216954}
+  map: {fileID: 492256381}
+  mat: {fileID: 2100000, guid: 5200d08eed076440583d76a2aeff3d10, type: 2}
+  line: {fileID: 2100000, guid: 98ad07dcab1324b86859a4bdc78bf387, type: 2}
 --- !u!1 &1480010720
 GameObject:
   m_ObjectHideFlags: 0
@@ -9054,7 +9060,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 0
   m_RegexValue: 
-  m_GlobalPointSize: 11
+  m_GlobalPointSize: 11.5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -10085,7 +10091,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 0
   m_RegexValue: 
-  m_GlobalPointSize: 11
+  m_GlobalPointSize: 11.5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -10517,7 +10523,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 0
   m_RegexValue: 
-  m_GlobalPointSize: 11
+  m_GlobalPointSize: 11.5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:

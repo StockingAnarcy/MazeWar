@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityStandardAssets.ImageEffects;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.Android;
 
 public class PanelSettings : MonoBehaviour
 {
@@ -47,7 +48,6 @@ public class PanelSettings : MonoBehaviour
 
             else if (Choice.ToUpper().Equals("W"))
             {
-               
                 LoadWhite();
                 EventSystem.current.SetSelectedGameObject(gameObject);
             }
@@ -55,7 +55,8 @@ public class PanelSettings : MonoBehaviour
             else if (Choice.ToUpper().Equals("S"))
             {
                 Intro2.SetActive(true);
-                gameObject.SetActive(false);
+                gameObject.SetActive(true);
+                PlayerPrefs.Save();
             }
         }       
     }
@@ -83,6 +84,8 @@ public class PanelSettings : MonoBehaviour
 
         mat.color = Color.white;
         line.color = Color.black;
+
+        PlayerPrefs.SetInt("Color", true ? 1 : 0);
     }
 
     public void LoadBlack()
@@ -108,5 +111,7 @@ public class PanelSettings : MonoBehaviour
 
         mat.color = Color.black;
         line.color = Color.green;
+
+        PlayerPrefs.SetInt("Color", false ? 1 : 0);
     }
 }
