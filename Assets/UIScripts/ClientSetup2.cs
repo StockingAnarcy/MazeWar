@@ -26,7 +26,7 @@ public class ClientSetup2 : MonoBehaviour {
 
 	public void SubmitName(string name)
 	{
-		if (Input.GetKeyDown(KeyCode.Return) || keyboard.status == TouchScreenKeyboard.Status.Done)
+		if (Input.GetKeyDown(KeyCode.Return) || TouchScreenKeyboard.visible == false)
 		{
 			Debug.Log("Name Selected: " + name);
 			FindObjectOfType<PlayerDetails>().name = name;

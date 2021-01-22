@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 9070649}
   - component: {fileID: 9070648}
   - component: {fileID: 9070647}
+  - component: {fileID: 9070651}
   m_Layer: 5
   m_Name: 'InputField (TMP) '
   m_TagString: Untagged
@@ -389,6 +390,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9070645}
   m_CullTransparentMesh: 0
+--- !u!114 &9070651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9070645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c01c1698dfec46b780ddf1209a953d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upp: 6
+  rightt: 0
 --- !u!1 &34585421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,6 +1447,7 @@ GameObject:
   - component: {fileID: 110916560}
   - component: {fileID: 110916559}
   - component: {fileID: 110916558}
+  - component: {fileID: 110916562}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -1618,6 +1634,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110916556}
   m_CullTransparentMesh: 0
+--- !u!114 &110916562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110916556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c01c1698dfec46b780ddf1209a953d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upp: 6
+  rightt: 0
 --- !u!1 &131081926
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,7 +2152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0
   Width: 20
   Height: 10
   SparsePercent: 80
@@ -2383,13 +2413,14 @@ GameObject:
   - component: {fileID: 330787483}
   - component: {fileID: 330787482}
   - component: {fileID: 330787481}
+  - component: {fileID: 330787485}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &330787480
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2581,6 +2612,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330787479}
   m_CullTransparentMesh: 0
+--- !u!114 &330787485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330787479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c01c1698dfec46b780ddf1209a953d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upp: 6
+  rightt: 0
 --- !u!1 &377248251
 GameObject:
   m_ObjectHideFlags: 0
@@ -3832,7 +3877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59292b671a86334281634e6e504bdd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introPanel: {fileID: 495447173}
   Intro2: {fileID: 710115156}
   PanelSettings: {fileID: 960305305}
 --- !u!114 &517874320
@@ -4992,7 +5036,7 @@ MonoBehaviour:
   SelectPanelServer: {fileID: 75224986}
   SelectPanelClient: {fileID: 131081926}
   SelectPanelHelp: {fileID: 517874317}
-  SelectPanelSettings: {fileID: 0}
+  SelectPanelSettings: {fileID: 960305305}
 --- !u!1 &728662532
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,6 +5652,7 @@ GameObject:
   - component: {fileID: 957349534}
   - component: {fileID: 957349533}
   - component: {fileID: 957349532}
+  - component: {fileID: 957349536}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -5830,6 +5875,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957349530}
   m_CullTransparentMesh: 0
+--- !u!114 &957349536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957349530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c01c1698dfec46b780ddf1209a953d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upp: 6
+  rightt: 0
 --- !u!1 &960305305
 GameObject:
   m_ObjectHideFlags: 0
@@ -5882,7 +5941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81d9aa78c86b384cb11353111503003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introPanel: {fileID: 495447173}
   Intro2: {fileID: 710115156}
   MCamera: {fileID: 454355173}
   Camera: {fileID: 527216954}
@@ -8965,6 +9023,7 @@ GameObject:
   - component: {fileID: 1754921861}
   - component: {fileID: 1754921860}
   - component: {fileID: 1754921859}
+  - component: {fileID: 1754921863}
   m_Layer: 5
   m_Name: 'InputField (TMP) '
   m_TagString: Untagged
@@ -9151,6 +9210,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754921857}
   m_CullTransparentMesh: 0
+--- !u!114 &1754921863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754921857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c01c1698dfec46b780ddf1209a953d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upp: 6
+  rightt: 0
 --- !u!1 &1775046418
 GameObject:
   m_ObjectHideFlags: 0
@@ -9996,6 +10069,7 @@ GameObject:
   - component: {fileID: 1889944071}
   - component: {fileID: 1889944070}
   - component: {fileID: 1889944069}
+  - component: {fileID: 1889944073}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -10182,6 +10256,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889944067}
   m_CullTransparentMesh: 0
+--- !u!114 &1889944073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889944067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c01c1698dfec46b780ddf1209a953d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upp: 6
+  rightt: 0
 --- !u!1 &1898343738
 GameObject:
   m_ObjectHideFlags: 0
@@ -10428,6 +10516,7 @@ GameObject:
   - component: {fileID: 1928099778}
   - component: {fileID: 1928099777}
   - component: {fileID: 1928099776}
+  - component: {fileID: 1928099775}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -10455,6 +10544,20 @@ RectTransform:
   m_AnchoredPosition: {x: -373.1, y: 2.5}
   m_SizeDelta: {x: 400, y: 22.7}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &1928099775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928099773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c01c1698dfec46b780ddf1209a953d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upp: 6
+  rightt: 0
 --- !u!114 &1928099776
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class ClientSetup1 : MonoBehaviour
 
 	public void SubmitIP(string ip)
 	{
-		if (Input.GetKeyDown(KeyCode.Return) || keyboard.status == TouchScreenKeyboard.Status.Done)
+		if (Input.GetKeyDown(KeyCode.Return) || TouchScreenKeyboard.visible == false)
 		{
 			Debug.Log("IP Address Selected: " + ip);
 			CSetup2.GetComponent<ClientSetup2>().IP = ip;

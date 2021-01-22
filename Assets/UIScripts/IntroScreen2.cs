@@ -21,7 +21,7 @@ public class IntroScreen2 : MonoBehaviour {
 
 	public void SubmitChoice(string Choice)
 	{
-		if (Input.GetKeyDown(KeyCode.Return) || keyboard.status == TouchScreenKeyboard.Status.Done)// TouchScreenKeyboard.visible==false)
+		if (Input.GetKeyDown(KeyCode.Return) || TouchScreenKeyboard.visible == false)
 		{
 			if(Choice.ToUpper().Equals("C"))
 			{

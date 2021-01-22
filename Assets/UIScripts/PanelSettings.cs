@@ -39,7 +39,7 @@ public class PanelSettings : MonoBehaviour
 
     public void SubmitChoice(string Choice)
     {
-        if (Input.GetKeyDown(KeyCode.Return) || keyboard.status == TouchScreenKeyboard.Status.Done)
+        if (Input.GetKeyDown(KeyCode.Return) || TouchScreenKeyboard.visible == false)
         {
             if (Choice.ToUpper().Equals("B"))
             {
@@ -56,7 +56,7 @@ public class PanelSettings : MonoBehaviour
             else if (Choice.ToUpper().Equals("S"))
             {
                 Intro2.SetActive(true);
-                gameObject.SetActive(true);
+                gameObject.SetActive(false);
                 PlayerPrefs.Save();
             }
         }       

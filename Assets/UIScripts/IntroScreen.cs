@@ -10,8 +10,6 @@ public class IntroScreen : MonoBehaviour
 	public TMP_Text LoadText;
 	public GameObject NextScene;
 	public TMP_InputField inpt;
-	public GameObject Sett;
-
 
 	TMP_Text[] texts;
 	Image[] images;

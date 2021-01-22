@@ -10,7 +10,7 @@ public class PanelHelp : MonoBehaviour
     TouchScreenKeyboard keyboard;
     public void SubmitChoice(string Choice)
     {
-        if (Input.GetKeyDown(KeyCode.Return) || keyboard.status == TouchScreenKeyboard.Status.Done)
+        if (Input.GetKeyDown(KeyCode.Return) || TouchScreenKeyboard.visible == false)
         {
             if (Choice.ToUpper().Equals("B"))
             {
