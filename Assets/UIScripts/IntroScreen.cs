@@ -128,6 +128,6 @@ public class IntroScreen : MonoBehaviour
 		mat.color = Color.black;
 		line.color = Color.green;
 
-
+		PlayerPrefs.SetInt("Color", false ? 1 : 0);
 	}
 }
