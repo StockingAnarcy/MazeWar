@@ -2503,10 +2503,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "-- XEROX Alto Executive/12 ------- Date and Time Unknown -\n--- OS Version
-    18/16 --- Alto0#377#--- --- ---------------\n\nMazeWar version 3.0\nOFFLINE MODE\n\nInput
-    Buttons:\n\t\nMovement: \tleft/right swipe - turn left/right\n\t\t\n\t\t up/down
-    swipe - move forward/back\n\nCombat:\t\t \"FIRE!\" button to shoot\n\nType DEL
-    or print /ext to exit MazeWar."
+    18/16 --- Alto0#377#--- --- ---------------\n\nMazeWar version 3.0\n<color=red>OFFLINE
+    MODE</color>\n\nInput Buttons:\n\t\nMovement: \tleft/right swipe - turn left/right\n\t\t\n\t\t
+    up/down swipe - move forward/back\n\nCombat:\t\t \"FIRE!\" button to shoot\n\nType
+    DEL or print /ext to exit MazeWar."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9cf5bd62dd5b1342a95a5e83d41c43c, type: 2}
   m_sharedMaterial: {fileID: -833371088238300268, guid: d9cf5bd62dd5b1342a95a5e83d41c43c,
