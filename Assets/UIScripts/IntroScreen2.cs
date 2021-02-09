@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class IntroScreen2 : MonoBehaviour {
@@ -11,7 +12,15 @@ public class IntroScreen2 : MonoBehaviour {
 	public GameObject SelectPanelSettings;
 
 	TouchScreenKeyboard keyboard;
-	void Update()
+
+	public AudioClip tone;
+	public AudioClip tone2;
+	public AudioSource source;
+	private void Start()
+    {
+		StartCoroutine("PlaySound");
+	}
+    void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Delete) || Input.GetKeyDown(KeyCode.Escape))
 		{
@@ -19,7 +28,17 @@ public class IntroScreen2 : MonoBehaviour {
 		}
 	}
 
-	public void SubmitChoice(string Choice)
+	IEnumerator PlaySound()
+	{
+		for (int i = 0; i < 1; i++)
+		{
+			source.PlayOneShot(tone);
+			yield return new WaitForSeconds(0.2f);
+			source.PlayOneShot(tone2);
+		}
+	}
+
+			public void SubmitChoice(string Choice)
 	{
 		if (Input.GetKeyDown(KeyCode.Return) || TouchScreenKeyboard.visible == false)
 		{

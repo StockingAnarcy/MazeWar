@@ -239,79 +239,79 @@ public class AIPlayer : MonoBehaviour {
 
 	void MoveOnPath()
 	{
-		if(mCD <= 0)
-		{	
-			if(interm == Direction.up)
+		if (mCD <= 0)
+		{
+			if (interm == Direction.up)
 			{
 				//Debug.Log("Moving Forward");
-				control.CmdUp();
+				control.CmdDoMovement(true, false, false, false);
 				interm = Direction.wait;
-				if(following)
-					mCD = MoveSpeed/2f;
+				if (following)
+					mCD = MoveSpeed / 2f;
 				else
-					mCD =  MoveSpeed;
+					mCD = MoveSpeed;
 			}
-			else if(MoveQ.Count > 0)
+			else if (MoveQ.Count > 0)
 			{
 				Direction d = MoveQ.Pop();
-				if(d == getDirection()) //Move Forward
+				if (d == getDirection()) //Move Forward
 				{
 					//Debug.Log(MoveQ.Count + "| Dir to Move: " + d + " - Facing: " + getDirection() + " - Moving Forward");
-					control.CmdUp();
-					if(following)
-						mCD = MoveSpeed/2f;
+					control.CmdDoMovement(true, false, false, false);
+					if (following)
+						mCD = MoveSpeed / 2f;
 					else
-						mCD =  MoveSpeed;
+						mCD = MoveSpeed;
 				}
-				else if(d == Direction.wait)
+				else if (d == Direction.wait)
 				{
-					mCD = Random.Range(mCD/2, mCD);
+					mCD = Random.Range(mCD / 2, mCD);
 				}
-				else if(reverse(d, getDirection()))
+				else if (reverse(d, getDirection()))
 				{
 					//Debug.Log(MoveQ.Count + "| Dir to Move: " + d + " - Facing: " + getDirection() + " - Turning Around");
-					control.CmdRight();
-					control.CmdRight();
+					control.CmdDoMovement(false, false, true, false);
+					control.CmdDoMovement(false, false, true, false);
 					interm = Direction.up;
-					if(following)
-						mCD = MoveSpeed/2f;
+					if (following)
+						mCD = MoveSpeed / 2f;
 					else
-						mCD =  MoveSpeed/3.5f;
+						mCD = MoveSpeed / 3.5f;
 				}
 				else
 				{
-					if(leftTurn(getDirection(), d)) //Turn left
+					if (leftTurn(getDirection(), d)) //Turn left
 					{
 						//Debug.Log(MoveQ.Count + "| Dir to Move: " + d + " - Facing: " + getDirection() + " - Turning Left");
-						control.CmdLeft();
+						control.CmdDoMovement(false, false, true, false);
 						interm = Direction.up;
-						if(following)
-							mCD = MoveSpeed/2f;
+						if (following)
+							mCD = MoveSpeed / 2f;
 						else
-							mCD =  MoveSpeed/3.5f;
+							mCD = MoveSpeed / 3.5f;
 					}
 					else //Turn right
 					{
 						//Debug.Log(MoveQ.Count + "| Dir to Move: " + d + " - Facing: " + getDirection() + " - Turning Right");
-						control.CmdRight();
+						control.CmdDoMovement(false, false, false, true);
 						interm = Direction.up;
-						if(following)
-							mCD = MoveSpeed/2f;
+						if (following)
+							mCD = MoveSpeed / 2f;
 						else
-							mCD =  MoveSpeed/3.5f;
+							mCD = MoveSpeed / 3.5f;
 					}
 				}
 			}
 			else
 			{
-				if(following)
+				if (following)
 				{
 					following = false;
 					Debug.Log("Ended follow (lost or killed)");
 				}
 				hasPath = false;
 				wantPos = randomPos();
-				mCD =  MoveSpeed/2;
+				mCD = MoveSpeed / 2;
 			}
 
 		}

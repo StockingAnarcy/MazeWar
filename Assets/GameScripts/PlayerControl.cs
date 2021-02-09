@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using Mirror;
 
+
 public class PlayerControl : NetworkBehaviour {
 
 	Vector2 firstPressPos;
@@ -28,6 +29,9 @@ public class PlayerControl : NetworkBehaviour {
 	public GameObject CamHolder;
 
 	bool setup;
+
+	public AudioClip Shot;
+	public AudioClip Dead;
 
 	void Start () 
 	{
@@ -155,6 +159,7 @@ public class PlayerControl : NetworkBehaviour {
 		StopCoroutine("LineShow");
 		StartCoroutine("LineShow");
 		CmdShoot();
+		
 	}
 
 
@@ -186,6 +191,11 @@ public class PlayerControl : NetworkBehaviour {
 		Ray r = new Ray(transform.position+(Vector3.up*1.38f), transform.TransformDirection(Vector3.forward)*50);
 		Debug.DrawRay(transform.position+(Vector3.up*1.38f), transform.TransformDirection(Vector3.forward)*50,Color.blue,1);
 		RaycastHit hit;
+		if (isLocalPlayer)
+		{
+			AudioSource Source = GetComponent<AudioSource>();
+			Source.PlayOneShot(Shot);
+		}
 		if(Physics.Raycast(r, out hit, 50))
 		{
 			if(hit.collider.tag == "OtherPlayer" || hit.collider.tag == "MyPlayer")
@@ -203,8 +213,14 @@ public class PlayerControl : NetworkBehaviour {
     {
 		if(GetComponentInChildren<InvertColorsEffect>() != null)
 		{
+			if (isLocalPlayer)
+			{
+				AudioSource Source = GetComponent<AudioSource>();
+				Source.PlayOneShot(Dead);
+			}
 			GetComponentInChildren<InvertColorsEffect>().enabled = true;
         	Invoke("HideEffect", 0.15f);
+			
 		}
     }
 

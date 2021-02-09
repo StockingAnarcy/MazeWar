@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 using UnityStandardAssets.ImageEffects;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class IntroScreen : MonoBehaviour
 {
 
@@ -26,6 +27,10 @@ public class IntroScreen : MonoBehaviour
 
 	public Material mat;
 	public Material line;
+
+	public AudioClip tone;
+	public AudioClip tone2;
+	public AudioSource source;
 
 	void Start()
 	{
@@ -63,16 +68,19 @@ public class IntroScreen : MonoBehaviour
 			LoadText.text = "";
 			yield return new WaitForSeconds(0.4f);
 			LoadText.text = ".";
+			source.PlayOneShot(tone);
 			yield return new WaitForSeconds(0.4f);
 			LoadText.text = "..";
+			source.PlayOneShot(tone);
 			yield return new WaitForSeconds(0.4f);
 			LoadText.text = "...";
+			source.PlayOneShot(tone);
 			yield return new WaitForSeconds(0.4f);
 		}
 		NextScene.SetActive(true);
 		EventSystem.current.SetSelectedGameObject(inpt.gameObject);
 		gameObject.SetActive(false);
-
+		
 	}
 
 	void LoadWhite()

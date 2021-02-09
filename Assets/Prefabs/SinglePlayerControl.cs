@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SinglePlayerControl : MonoBehaviour {
 
@@ -9,7 +10,6 @@ public class SinglePlayerControl : MonoBehaviour {
 	Vector2 firstPressPos;
 	Vector2 secondPressPos;
 	Vector2 currentSwipe;
-
 
 	int pX;
 	int pY;
@@ -25,6 +25,9 @@ public class SinglePlayerControl : MonoBehaviour {
 	bool setup;
 
 	public bool PlayerControl;
+
+	public AudioClip Shot;
+	public AudioClip Dead;
 
 	void Start () 
 	{
@@ -57,30 +60,6 @@ public class SinglePlayerControl : MonoBehaviour {
 			CamHolder.SetActive(true);
 		}
 
-		if (Input.GetKeyDown(KeyCode.UpArrow))
-		{
-			CmdUp();
-		}
-		CheckSeen();
-
-		if (Input.GetKeyDown(KeyCode.DownArrow))
-		{
-			CmdDown();
-		}
-		CheckSeen();
-
-		if (Input.GetKeyDown(KeyCode.LeftArrow))
-		{
-			CmdLeft();
-		}
-		CheckSeen();
-
-		if (Input.GetKeyDown(KeyCode.RightArrow))
-		{
-			CmdRight();
-		}
-		CheckSeen();
-
 #if UNITY_ANDROID
 		if (Input.touches.Length > 0)
 		{
@@ -90,6 +69,7 @@ public class SinglePlayerControl : MonoBehaviour {
 				//save began touch 2d point
 				firstPressPos = new Vector2(t.position.x, t.position.y);
 			}
+
 			if (t.phase == TouchPhase.Ended)
 			{
 				//save ended touch 2d point
@@ -104,33 +84,33 @@ public class SinglePlayerControl : MonoBehaviour {
 				//swipe upwards
 				if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
 				{
-					Debug.Log("up swipe");
-					CmdUp();
+					//Debug.Log("up swipe");
+					CmdDoMovement(true, false, false, false);
 				}
 				//swipe down
 				if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
 				{
-					Debug.Log("down swipe");
-					CmdDown();
+					//Debug.Log("down swipe");
+					CmdDoMovement(false, true, false, false);
 				}
 				//swipe left
 				if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
 				{
-					Debug.Log("left swipe");
-					CmdLeft();
+					//Debug.Log("left swipe");
+					CmdDoMovement(false, false, true, false);
 				}
 				//swipe right
 				if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
 				{
-					Debug.Log("right swipe");
-					CmdRight();
+					//Debug.Log("right swipe");
+					CmdDoMovement(false, false, false, true);
 				}
 
 			}
 			CheckSeen();
 		}
 #endif
-		/*
+
 		bool up = Input.GetKeyDown(KeyCode.UpArrow);
 		bool down = Input.GetKeyDown(KeyCode.DownArrow);
 		bool left = Input.GetKeyDown(KeyCode.LeftArrow);
@@ -142,11 +122,15 @@ public class SinglePlayerControl : MonoBehaviour {
 			CmdDoMovement(up, down, left, right);
 		}
 		CheckSeen();
-		*/
+		
 			
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
 			Shoot();
+		}
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			SceneManager.LoadScene(0);
 		}
 	}
 
@@ -183,7 +167,12 @@ public class SinglePlayerControl : MonoBehaviour {
 		Ray r = new Ray(transform.position+(Vector3.up*1.38f), transform.TransformDirection(Vector3.forward)*50);
 		Debug.DrawRay(transform.position+(Vector3.up*1.38f), transform.TransformDirection(Vector3.forward)*50,Color.blue,1);
 		RaycastHit hit;
-		if(Physics.Raycast(r, out hit, 50))
+		if (PlayerControl)
+		{
+			AudioSource Source = GetComponent<AudioSource>();
+			Source.PlayOneShot(Shot);
+		}
+		if (Physics.Raycast(r, out hit, 50))
 		{
 			if(hit.collider.tag == "OtherPlayer" || hit.collider.tag == "MyPlayer")
 			{
@@ -199,6 +188,11 @@ public class SinglePlayerControl : MonoBehaviour {
     {
 		if(GetComponentInChildren<InvertColorsEffect>() != null)
 		{
+			if (PlayerControl)
+			{
+				AudioSource Source = GetComponent<AudioSource>();
+				Source.PlayOneShot(Dead);
+			}
 			GetComponentInChildren<InvertColorsEffect>().enabled = true;
         	Invoke("HideEffect", 0.15f);
 		}
@@ -254,51 +248,51 @@ public class SinglePlayerControl : MonoBehaviour {
 		transform.localEulerAngles = new Vector3(0,Random.Range(0,4)*90, 0);
 	}
 
-	
 	public void CmdDoMovement(bool up, bool back, bool left, bool right)
 	{
-		Vector2 fDir = new Vector2(0,1);
+		Vector2 fDir = new Vector2(0, 1);
 		float ang = transform.localEulerAngles.y;
-		if(ang < 100 && ang > 80)
-			fDir = new Vector2(1,0);
-		else if(ang < 190 && ang > 170)
+		if (ang < 100 && ang > 80)
+			fDir = new Vector2(1, 0);
+		else if (ang < 190 && ang > 170)
 			fDir = new Vector2(0, -1);
-		else if(ang < 280 && ang > 260)
-			fDir = new Vector2(-1,0);
+		else if (ang < 280 && ang > 260)
+			fDir = new Vector2(-1, 0);
 
-		if(up)
+		if (up)
 		{
 			int nX = pX + (int)fDir.x;
 			int nY = pY + (int)fDir.y;
-			if(!m.GetCell(nX, nY).isWall && notTaken(nX, nY))
+			if (!m.GetCell(nX, nY).isWall)
 			{
 				pX = nX;
 				pY = nY;
-				transform.position = new Vector3(nX*1.5f, 0, nY*1.5f);
-			}	
+				transform.position = new Vector3(nX * 1.5f, 0, nY * 1.5f);
+			}
 		}
-		else if(back)
+		else if (back)
 		{
 			int nX = pX - (int)fDir.x;
 			int nY = pY - (int)fDir.y;
-			if(!m.GetCell(nX, nY).isWall && notTaken(nX, nY))
+			if (!m.GetCell(nX, nY).isWall)
 			{
 				pX = nX;
 				pY = nY;
-				transform.position = new Vector3(nX*1.5f, 0, nY*1.5f);
+				transform.position = new Vector3(nX * 1.5f, 0, nY * 1.5f);
 			}
 		}
-		else if(left)
+		else if (left)
 		{
-			transform.localEulerAngles += new Vector3(0,-90,0);
+			transform.localEulerAngles += new Vector3(0, -90, 0);
 		}
-		else if(right)
+		else if (right)
 		{
 			transform.localEulerAngles += new Vector3(0, 90, 0);
 		}
 	}
-	
 
+	/*
+	[Command]
 	public void CmdUp()
 	{
 		Vector2 fDir = new Vector2(0, 1);
@@ -320,6 +314,7 @@ public class SinglePlayerControl : MonoBehaviour {
 		}
 	}
 
+	[Command]
 	public void CmdDown()
 	{
 		Vector2 fDir = new Vector2(0, 1);
@@ -341,19 +336,19 @@ public class SinglePlayerControl : MonoBehaviour {
 		}
 	}
 
-
+	[Command]
 	public void CmdLeft()
 	{
 		transform.localEulerAngles += new Vector3(0, -90, 0);
 	}
 
-
+	[Command]
 	public void CmdRight()
 	{
 		transform.localEulerAngles += new Vector3(0, 90, 0);
-	}
-
-
+	}*/
+	
+	
 	bool notTaken(int x, int y)
 	{
 		SinglePlayerControl[] controls = GameObject.FindObjectsOfType<SinglePlayerControl>();
