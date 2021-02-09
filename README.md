@@ -7,7 +7,7 @@ Based on https://github.com/Blueteak/MazeWar
 ![alt text](https://i.imgur.com/fhwmI46.png?1)<br />
 
 ##### Game Window<br />
-![alt text](https://i.imgur.com/eAQd26v.jpg?1)<br />
+![alt text](https://i.imgur.com/eAQd26v.jpg?2)<br />
 
 ### Features
   Mostly depends on Blueteak's source
@@ -26,3 +26,4 @@ Based on https://github.com/Blueteak/MazeWar
   - Original Game Resolution (606x808)
   - Xerox Alto Font Replicas
   - Original Raster-Line World Display
+  - Color modes (black/white)
